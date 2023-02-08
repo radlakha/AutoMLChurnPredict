@@ -27,4 +27,6 @@ The below statement 3 needs to be more specific
 3. Change the absolute paths inside the streamlit app to corresponding absolute paths on your computer.
 
 4. Run the app from conda prompt using streamlit run Home.py 
+Use command activate to switch to env you created above if necessary
+conda activate env5
 (Make sure you change your directory's path to point to the app's location using cd before running this command)
