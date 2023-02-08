@@ -24,7 +24,39 @@ If you run into SSL Error when working from corporate network it is likely that 
 There is a prefix label in YAML which also needs to be edited per your env.
 The below statement 3 needs to be more specific
 
+3. Your directory should look something like this 
+
+![image](https://user-images.githubusercontent.com/80118039/217454740-83736989-c216-4281-acdf-520385a605ee.png)
+
+* **Home.py** is the first page which is displayed when you run the Streamlit App.
+* Inside the **pages** folder, the other pages of the app are stored. They're numbered numerically in the order of their display. Please follow this order while using the app as well. 
+* The **data** folder contains the original dataset to be used. 
+* The **data_mod** folder contains the modified data that is stored from the app. (This is the dataset produced after the user deletes some columns)
+* **deployment_28042020.pkl** is the Pickle file which stores the best performing model. 
+
 3. Change the absolute paths inside the streamlit app to corresponding absolute paths on your computer.
+
+These include:
+
+* In the file 2_Upload_Your_Data.py, line 62 which is 
+
+``` save_path = os.path.join(parent_path, "data") ```
+
+Change ```data``` to whatever the name of the folder where you want the original dataset to be stored is. 
+
+Similary, for line 68 in the same file, which is
+
+``` save_path2 = os.path.join(parent_path, "data_mod")```
+
+Chnage ```data_mod``` to whatever the name of the folder where you want the modified dataset to be stored is. 
+
+* In the file 3_Know_Your_Data.py, line 13 which is 
+
+``` path = 'C:/Users/sbhadwal/sol1/streamapp/data_mod' ```
+
+Change this path to the path of the folder where you're storing the modified data. 
+
+* Same as above for file 4_Train_Your_Model.py (line 13) and file 5_Predict.py (line 16)
 
 4. Run the app from conda prompt using streamlit run Home.py 
 (Make sure you change your directory's path to point to the app's location using cd before running this command)
