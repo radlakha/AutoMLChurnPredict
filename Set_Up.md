@@ -30,7 +30,7 @@ The below statement 3 needs to be more specific
 
 * **Home.py** is the first page which is displayed when you run the Streamlit App.
 * Inside the **pages** folder, the other pages of the app are stored. They're numbered numerically in the order of their display. Please follow this order while using the app as well. 
-* The **data** folder contains the original dataset to be used. 
+* The **data** folder contains the original dataset to be used (after it is loaded by the user). 
 * The **data_mod** folder contains the modified data that is stored from the app. (This is the dataset produced after the user deletes some columns)
 * **deployment_28042020.pkl** is the Pickle file which stores the best performing model. 
 
