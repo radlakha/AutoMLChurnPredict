@@ -8,14 +8,16 @@ from pycaret.classification import load_model, predict_model
 import streamlit as st
 import os
 import pandas as pd
+import pathlib
 
 st.title("Predict Online")  #Prediction Page
 
 model = load_model('deployment_28042020')  #Loading the saved model
 
-path = 'C:/Users/sbhadwal/sol1/streamapp/data_mod' #Defining path
+parent_path = pathlib.Path(__file__).parent.parent.resolve() #Defining path
+path = os.path.join(parent_path, "data_mod")
 dir_list = os.listdir(path)
-path_final = path + "/" + dir_list[0]
+path_final = path + "/" + dir_list[0] 
 
 target1 = st.session_state.tkey
 target1 = str(target1)
