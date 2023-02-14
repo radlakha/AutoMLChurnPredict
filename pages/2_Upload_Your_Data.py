@@ -61,12 +61,14 @@ def upload(): #Function for uploading the data file
         parent_path = pathlib.Path(__file__).parent.parent.resolve()           
         save_path = os.path.join(parent_path, "data")
         complete_name = os.path.join(save_path, uploaded_file.name)
+        pathlib.Path(save_path).mkdir(parents=True, exist_ok=True) #Create directory if does not exist
         with open(complete_name,"wb") as f:
             f.write(uploaded_file.getbuffer())  #Wrtitng the file (unmodified)
         
         #Code to save dataframe_new
         save_path2 = os.path.join(parent_path, "data_mod")
         complete_name = os.path.join(save_path2, uploaded_file.name)
+        pathlib.Path(save_path2).mkdir(parents=True, exist_ok=True) #Create directory if does not exist
         dataframe_new.to_csv(complete_name, index = False)
             
         return st.success("Saved File") 
